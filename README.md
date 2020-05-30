@@ -35,15 +35,28 @@
 
 ## Post Table
 
-| postIndex (PK) | location ( NULL 허용) | content |
+| postIndex (PK) | userIndex(FK) | location ( NULL 허용) | content |
+| ---- | ---- | ---- | --- |
+|1|12|나의 다락방| 나의 집은 참 편하다. 얼마나 편하냐면 .... | 
+|2|5|북한산| 자연속 나의 집. 자연 속에 살아가는 것이란 .... | 
+|3|9|이케아| 광명시 이케아. 아주 잘 꾸며놨다. 나는 이걸 추천한다 ...| 
 
 
 ## Review Table
 
-| reviewIndex (PK) | content |  createdAt |
+| reviewIndex (PK) | userIndex(FK) | sellIndex(FK) | content | createdAt |
+| --- | --- | --- | --- | --- |
+|1|5|3|이거 너무 이쁘고 좋아요. 짱!|2018-05-01|
+|2|2|32|무거워서 불편한 점이 있지만, 인테리어적으로 최곱니다.|2019-02-01|
+|3|19|11|SOPT 사무실에 너무 잘어울려요. 최고 !|2020-05-01|
 
 
 ## Detail Table
 
-| detailIndex (PK) | imgUrl |  title | price | content |
+| detailIndex (PK) | postIndex (FK) | imgUrl |  company | price | content |
+| --- | --- | --- | --- | --- | --- |
+|1|2|http://tineye.com/images/widgets/mona.jpg|BB company|56000|산 속 의자|
+|2|13|http://tineye.com/images/widgets/mona.jpg|SOPT company|99000|Virtual Desk|
+|3|22|http://tineye.com/images/widgets/mona.jpg|IKEA|23000|IKEA Light|
+
 
