@@ -1,5 +1,7 @@
 # 26th-TodayHouse-Seminar
 
+![image](https://user-images.githubusercontent.com/37873745/83325452-4b9c6400-a2a7-11ea-8128-2d8bc5e51df0.png)
+
 ## User Table
 
 | userIndex (PK) | name | profileUrl |
@@ -58,5 +60,12 @@
 |1|2|http://tineye.com/images/widgets/mona.jpg|BB company|56000|산 속 의자|
 |2|13|http://tineye.com/images/widgets/mona.jpg|SOPT company|99000|Virtual Desk|
 |3|22|http://tineye.com/images/widgets/mona.jpg|IKEA|23000|IKEA Light|
+
+## Banner Table
+| bannerUrl |
+| --- |
+| http://tineye.com/images/widgets/mona1.jpg |
+| http://tineye.com/images/widgets/mona2.jpg |
+| http://tineye.com/images/widgets/mona3.jpg |
 
 
