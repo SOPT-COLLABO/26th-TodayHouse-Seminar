@@ -1,7 +1,7 @@
 # 26th-TodayHouse-Seminar
 
 ![image](https://user-images.githubusercontent.com/37873745/83325452-4b9c6400-a2a7-11ea-8128-2d8bc5e51df0.png)
-
+![image](https://user-images.githubusercontent.com/22907830/83326061-ff075780-a2ab-11ea-89eb-57be72cdf90e.png)
 ## User Table
 
 | userIndex (PK) | name | profileUrl |
