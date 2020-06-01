@@ -47,7 +47,7 @@
 ## Review Table
 
 | reviewIndex (PK) | userIndex(FK) | sellIndex(FK) | content | createdAt | imgUrl |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 |1|5|3|이거 너무 이쁘고 좋아요. 짱!|2018-05-01| http://tineye.com/images/widgets/mona.jpg |
 |2|2|32|무거워서 불편한 점이 있지만, 인테리어적으로 최곱니다.|2019-02-01| http://tineye.com/images/widgets/mona.jpg |
 |3|19|11|SOPT 사무실에 너무 잘어울려요. 최고 !|2020-05-01| http://tineye.com/images/widgets/mona.jpg |
