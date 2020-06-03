@@ -1,67 +1,69 @@
 const pool = require('../modules/pool');
-const table = 'post';
+const postTable = 'Post';
+const postImgTable = 'PostImage';
+const userTable = 'User';
+const detailTable = 'Detail';
+
+/*
+    # 기획단계에서의 보충 설명 필요부분
+     * post에서 인기사진 리스트를 뽑아오려면 likes, 나 views 등의 변수와 로직 필요
+     * 메인화면의 스토리 출력 로직이 없음
+*/
 
 const post = {
-    createPost: async (title, author, content) => {
-
-        const fields = 'title, author, content';
-        const questions = '?,?,?';
-        const values = [title, author, content];
-        const query = `INSERT INTO ${table}(${fields}) VALUES(${questions})`;
-        try {
-            const result = await pool.queryParamArr(query, values);
-            console.log('Create post - result: ', result);
-            return 1;
-        } catch (err) {
-            if (err.errno == 1062) {
-                console.log('createPost ERROR : ', err.errno, err.code);
-                return -1;
-            }
-            console.log('createPost ERROR: ', err);
-            throw err;
-        }
-    },
-    getPost: async (id) => {
-        const query = `SELECT * FROM ${table} WHERE postidx = "${id}"`;
-        try {
-            const result = await pool.queryParam(query);
-            return result;
-        } catch (err) {
-            throw err;
-        }
-
-    },
-    getPostList: async () => {
+    // 포스트 리스트 불러오기
+    getAllList: async () => {
         const query = `SELECT * FROM ${table}`;
         try {
             const result = await pool.queryParam(query);
-            return result;
+            console.log(result)
+            return result
+
         } catch (err) {
+            if (err.errno == 1062) {
+                console.log('getAll ERROR : ', err.errno, err.code);
+                return -1;
+            }
+            console.log('getAll ERROR : ', err);
             throw err;
         }
     },
-    updatePost: async (id, title, content) => {
-        const query = `UPDATE ${table} SET title = "${title}", content = "${content}" WHERE postidx = "${id}"`;
+
+    // 메인화면 인기사진 리스트 불러오기
+    getPhotoImgs: async () => {
+        const query = `SELECT * FROM ${table}`;
         try {
-            const result = await pool.queryParamArr(query);
-            console.log('Update post - result: ', result);
-            if (result.affectedRows > 0) return false;
-            else return true;
+            const result = await pool.queryParam(query);
+            console.log(result)
+            return result
+
         } catch (err) {
+            if (err.errno == 1062) {
+                console.log('getPhotoImgs ERROR : ', err.errno, err.code);
+                return -1;
+            }
+            console.log('getPhotoImgs ERROR : ', err);
             throw err;
         }
     },
-    deletePost: async (id) => {
-        const query = `DELETE FROM ${table} WHERE postidx = "${id}"`;
+
+    // 메인화면 스토리 리스트 불러오기
+    getStories: async () => {
+        const query = `SELECT * FROM ${table}`;
         try {
-            const result = await pool.queryParamArr(query);
-            console.log('Delete post - result: ', result);
-            if (result.affectedRows > 0) return false;
-            else return true;
+            const result = await pool.queryParam(query);
+            console.log(result)
+            return result
+
         } catch (err) {
+            if (err.errno == 1062) {
+                console.log('getPhotoImgs ERROR : ', err.errno, err.code);
+                return -1;
+            }
+            console.log('getPhotoImgs ERROR : ', err);
             throw err;
         }
-    },
+    }
 
 }
 
