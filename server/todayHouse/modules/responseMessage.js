@@ -3,14 +3,16 @@ module.exports = {
     OUT_OF_VALUE: "파라미터 값이 잘못되었습니다",
 
     // SELL 게시글
-    SELL_SUCCESS: "판매글 조회 성공",
+    ALL_SELL_SUCCESS: "가구 판매글 리스트 불러오기 성공",
+    SELL_SUCCESS: "가구 판매글 불러오기 성공",
     SELL_FAIL: "판매글 조회 실패",
-    SELL_CREATE_SUCCESS: "판매글 생성 성공",
-    SELL_CREATE_FAIL: "판매글 생성 실패",
-    SELL_UPDATE_SUCCESS: "판매글 수정 성공",
-    SELL_UPDATE_FAIL: "판매글 수정 실패",
-    SELL_DELETE_SUCCESS: "판매글 삭제 성공",
-    SELL_DELETE_FAIL: "판매글 삭제 실패",
+    SELL_TODAY_SUCCESS: "오늘의 딜 불러오기 성공",
+    // SELL_CREATE_SUCCESS: "판매글 생성 성공",
+    // SELL_CREATE_FAIL: "판매글 생성 실패",
+    // SELL_UPDATE_SUCCESS: "판매글 수정 성공",
+    // SELL_UPDATE_FAIL: "판매글 수정 실패",
+    // SELL_DELETE_SUCCESS: "판매글 삭제 성공",
+    // SELL_DELETE_FAIL: "판매글 삭제 실패",
 
 
     // POST 게시글

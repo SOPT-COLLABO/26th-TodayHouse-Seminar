@@ -10,13 +10,13 @@ router.get('/', async (req, res) => {
   const sell = await SellModel.getAllList();
 
   return res.status(statusCode.OK)
-    .send(util.success(statusCode.OK, resMessage.SELL_SUCCESS, sell));
+    .send(util.success(statusCode.OK, resMessage.ALL_SELL_SUCCESS, sell));
 });
 
 router.get('/main', async (req, res) => {
   const sell = await SellModel.getBanner();
   return res.status(statusCode.OK)
-    .send(util.success(statusCode.OK, resMessage.SELL_SUCCESS, sell));
+    .send(util.success(statusCode.OK, resMessage.SELL_TODAY_SUCCESS, sell));
 });
 
 router.get('/:id', async (req, res) => {
