@@ -7,7 +7,7 @@ const sell = {
         try {
             const result = await pool.queryParam(query);
             let result2;
-            for (res of result) {
+            for (let res of result) {
                 // img 가져오기
                 result2 = await sell.getSellImages(res.sellIdx);
                 res['imgs'] = result2;
@@ -26,7 +26,7 @@ const sell = {
         try {
             const result = await pool.queryParam(query);
             let result2;
-            for (res of result) {
+            for (let res of result) {
                 // img 가져오기
                 result2 = await sell.getSellImages(res.sellIdx);
                 res['imgs'] = result2;
@@ -42,16 +42,13 @@ const sell = {
     },
     getBanner: async () => {
         const cnt = await sell.getSellCount();
-        randomNum = Math.floor(Math.random() * cnt + 1);
-        console.log(randomNum);
+        const randomNum = Math.floor(Math.random() * cnt + 1);
         const query = `SELECT sellIdx, company, discount FROM ${table} WHERE sellIdx = "${randomNum}"`;
         try {
             const result = await pool.queryParam(query);
-            console.log(result);
             let result2;
-            for (res of result) {
+            for (let res of result) {
                 // img 가져오기
-                console.log(res);
                 result2 = await sell.getSellImages(res.sellIdx);
                 res['imgUrl'] = result2[0].imgUrl;
             }
@@ -81,12 +78,12 @@ const sell = {
             throw err;
         }
     },
-    getSellCount: async () =>{
+    getSellCount: async () => {
         const query = `SELECT COUNT(*) AS cnt FROM Sell`;
-        try{
+        try {
             const result = await pool.queryParam(query);
             return result[0].cnt;
-        } catch (err){
+        } catch (err) {
             throw err;
         }
     }
