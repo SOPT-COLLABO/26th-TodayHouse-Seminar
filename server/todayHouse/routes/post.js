@@ -8,7 +8,7 @@ const PostModel = require('../models/post');
 
 
 /* GET 포스트 리스트 불러오기 */
-router.get('/', function (req, res) {
+router.get('/', async (req, res) => {
   // 불러오기
   const posts = await PostModel.getAllList();
 
@@ -18,7 +18,7 @@ router.get('/', function (req, res) {
 });
 
 /* GET 메인화면 인기사진 리스트 불러오기 */
-router.get('/popular', function (req, res) {
+router.get('/popular', async (req, res) => {
   // 불러오기
   const photos = await PostModel.getPhotoImgs();
 
@@ -29,7 +29,7 @@ router.get('/popular', function (req, res) {
 
 
 /* GET 메인화면 스토리 리스트 불러오기 */
-router.get('/story', function (req, res) {
+router.get('/story', async (req, res) => {
   // 불러오기
   const stories = await PostModel.getStories();
 
