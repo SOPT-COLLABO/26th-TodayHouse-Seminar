@@ -13,10 +13,16 @@ const detailTable = 'Detail';
 const post = {
     // 포스트 리스트 불러오기
     getAllList: async () => {
-        const query = `SELECT * FROM ${table}`;
+        const query = `SELECT postIdx, name, profileImgUrl, location, content FROM ${postTable}
+        INNER JOIN ${userTable} ON Post.User_userIdx = User.userIdx`;
         try {
             const result = await pool.queryParam(query);
-            console.log(result)
+            for (let element of result) {
+                // 이미지 추가
+                element['postImgs'] = await post.getPostImgs(element['postIdx'])
+                // 상세가구 추가
+                element['details'] = await post.getDetails(element['postIdx'])
+            }
             return result
 
         } catch (err) {
@@ -31,7 +37,7 @@ const post = {
 
     // 메인화면 인기사진 리스트 불러오기
     getPhotoImgs: async () => {
-        const query = `SELECT * FROM ${table}`;
+        const query = `SELECT imgUrl FROM ${postImgTable}`;
         try {
             const result = await pool.queryParam(query);
             console.log(result)
@@ -49,10 +55,65 @@ const post = {
 
     // 메인화면 스토리 리스트 불러오기
     getStories: async () => {
-        const query = `SELECT * FROM ${table}`;
+        const query = `SELECT name, content, postIdx FROM ${postTable} INNER JOIN ${userTable} ON Post.User_userIdx = User.userIdx`;
         try {
             const result = await pool.queryParam(query);
-            console.log(result)
+            // 이미지 추가
+            for (let element of result) {
+                element['imgUrl'] = await post.mainPostImg(element['postIdx'])
+            }
+            return result
+
+        } catch (err) {
+            if (err.errno == 1062) {
+                console.log('getPhotoImgs ERROR : ', err.errno, err.code);
+                return -1;
+            }
+            console.log('getPhotoImgs ERROR : ', err);
+            throw err;
+        }
+    },
+
+    // 메인화면 스토리 사진 불러오기
+    mainPostImg: async (idx) => {
+        const query = `SELECT imgUrl FROM ${postImgTable} WHERE Post_postIdx="${idx}"`;
+        try {
+            const result = await pool.queryParam(query);
+            return result[0].imgUrl
+
+        } catch (err) {
+            if (err.errno == 1062) {
+                console.log('getPhotoImgs ERROR : ', err.errno, err.code);
+                return -1;
+            }
+            console.log('getPhotoImgs ERROR : ', err);
+            throw err;
+        }
+    },
+
+    // 상세 가구 정보 불러오기
+    getDetails: async (idx) => {
+        const query = `SELECT imgUrl, company, price, Detail.content FROM ${postTable}
+        INNER JOIN ${detailTable} ON Post.postIdx = Detail.Post_postIdx WHERE Post.postIdx = "${idx}"`;
+        try {
+            const result = await pool.queryParam(query);
+            return result
+
+        } catch (err) {
+            if (err.errno == 1062) {
+                console.log('getPhotoImgs ERROR : ', err.errno, err.code);
+                return -1;
+            }
+            console.log('getPhotoImgs ERROR : ', err);
+            throw err;
+        }
+    },
+
+    // 포스트 이미지 불러오기
+    getPostImgs: async (idx) => {
+        const query = `SELECT imgUrl FROM ${postImgTable} WHERE Post_postIdx="${idx}"`;
+        try {
+            const result = await pool.queryParam(query);
             return result
 
         } catch (err) {
@@ -64,6 +125,7 @@ const post = {
             throw err;
         }
     }
+
 
 }
 
