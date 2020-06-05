@@ -1,6 +1,6 @@
 # 26th-TodayHouse-Seminar
 
-<img width="856" alt="스크린샷 2020-06-02 오전 2 26 58" src="https://user-images.githubusercontent.com/37873745/83436452-d4b6c500-a478-11ea-8c8a-719f322060b7.png">
+<img width="856" alt="스크린샷 2020-06-02 오전 2 26 58" src="https://user-images.githubusercontent.com/22907830/83845014-0662b100-a743-11ea-876a-2b512836bde8.png">
 
 ![image](https://user-images.githubusercontent.com/22907830/83326061-ff075780-a2ab-11ea-89eb-57be72cdf90e.png)
 ## User Table
