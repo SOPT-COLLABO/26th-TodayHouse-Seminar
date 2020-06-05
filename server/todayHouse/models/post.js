@@ -40,7 +40,6 @@ const post = {
         const query = `SELECT imgUrl FROM ${postImgTable}`;
         try {
             const result = await pool.queryParam(query);
-            console.log(result)
             return result
 
         } catch (err) {
