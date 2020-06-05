@@ -27,6 +27,8 @@ module.exports = {
     // POST_DELETE_SUCCESS: "게시글 삭제 성공",
     // POST_DELETE_FAIL: "게시글 삭제 실패",
 
+    // 배너 관련
+    ALL_Banner_SUCCESS: "배너 이미지 불러오기 성공",
 
 
     DB_ERROR: "DB 오류"
