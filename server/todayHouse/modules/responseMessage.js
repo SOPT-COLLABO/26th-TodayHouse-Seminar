@@ -19,6 +19,7 @@ module.exports = {
     ALL_POST_SUCCESS: "가구 포스트 불러오기 성공",
     POPULAR_PHOTOS_SUCCESS: "인기사진 리스트 불러오기 성공",
     STORY_SUCCESS: "메인화면 스토리 리스트 불러오기 성공",
+    DETAIL_SUCCESS: "디테일 리스트 불러오기 성공",
     POST_FAIL: "게시글 조회 실패",
     // POST_CREATE_SUCCESS: "게시글 생성 성공",
     // POST_CREATE_FAIL: "게시글 생성 실패",

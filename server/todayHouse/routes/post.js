@@ -38,4 +38,15 @@ router.get('/story', async (req, res) => {
     .send(util.success(statusCode.OK, resMessage.STORY_SUCCESS, stories));
 });
 
+
+/* postIdx에 맞는 detail 데이터 불러오기 */
+router.get('/:postIdx', async (req, res) => {
+  const postIdx = req.params.postIdx;
+  const details = await PostModel.getDetails(postIdx);
+
+  // 불러오기 성공
+  return res.status(statusCode.OK)
+    .send(util.success(statusCode.OK, resMessage.DETAIL_SUCCESS, details));
+});
+
 module.exports = router;

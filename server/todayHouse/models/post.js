@@ -92,8 +92,8 @@ const post = {
 
     // 상세 가구 정보 불러오기
     getDetails: async (idx) => {
-        const query = `SELECT imgUrl, company, price, Detail.content FROM ${postTable}
-        INNER JOIN ${detailTable} ON Post.postIdx = Detail.Post_postIdx WHERE Post.postIdx = "${idx}"`;
+        const query = `SELECT imgUrl, company, price, content FROM ${detailTable}
+        WHERE Post_postIdx = "${idx}"`;
         try {
             const result = await pool.queryParam(query);
             return result
